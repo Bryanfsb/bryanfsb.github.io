@@ -4,7 +4,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,19 +14,21 @@
 <body>
 
     <header>
-        <input>
+        <label for="Cajita">Texto</label>
+        <input type="text" id="Texto" name="Cajita">
     </header>
 
     <main>
         <div id="mensaje"></div>
-        <button onclick="encriptar()">Encriptar</button>
-        <button onclick="desencriptar()">Desencriptar</button>
+        <button id="encriptar">Encriptar</button>
+        <button id="desencriptar">Desencriptar</button>
+        
     </main>
 
     <footer>
 
     </footer>
-
+    <script src="script.js"></script>
 </body>
 
 
