@@ -8,34 +8,46 @@ const botonDesencript = document.getElementById("desencriptar");
 
 function encriptar(){
     let entrada = document.getElementById("Texto").value;
-    palabra = entrada;
-    for (letra in letras){
-        if (entrada.includes(letras[letra])){
+        if(/^[a-zA-ZñÑ ]+$/.test(entrada)){
+            entrada = entrada.toLowerCase()
+            palabra = entrada;
+            for (letra in letras){
+            if (entrada.includes(letras[letra])){
             
-            let encriptao = entrada.replace(letras[letra],numKey[letra]); 
+            let encriptao = entrada.replaceAll(letras[letra],numKey[letra]); 
             entrada = encriptao 
             
         }
     }
-    let encriptao = entrada.replace("0","ai").replace("1","enter").replace("2","imes").replace("3","ober").replace("4","ufat")
+    let encriptao = entrada.replaceAll("0","ai").replaceAll("1","enter").replaceAll("2","imes").replaceAll("3","ober").replaceAll("4","ufat")
     let mostrar = document.getElementById("mensaje");
-    mostrar.innerHTML = `la palabra ${palabra} fue encriptada a ${encriptao}<br><br>`;
+    mostrar.innerHTML = `${encriptao}`;
+        }
+        else{
+            alert("escriba")
+        }
 }
 
 function desencriptar(){
     let entrada = document.getElementById("Texto").value;
-    palabra = entrada;
-    for (letra in letras){
+    if(/^[a-zA-ZñÑ ]+$/.test(entrada)){
+        entrada = entrada.toLowerCase()
+        palabra = entrada;
+        for (letra in letras){
         if (entrada.includes(letras[letra])){
             
-            let desencriptao = entrada.replace(encript[letra],numKey[letra]); 
+            let desencriptao = entrada.replaceAll(encript[letra],numKey[letra]); 
             entrada = desencriptao 
 
         }
     }
-    let desencriptao = entrada.replace("0","a").replace("1","e").replace("2","i").replace("3","o").replace("4","u")
+    let desencriptao = entrada.replaceAll("0","a").replaceAll("1","e").replaceAll("2","i").replaceAll("3","o").replaceAll("4","u")
     let mostrar = document.getElementById("mensaje");
-    mostrar.innerHTML = `la palabra ${palabra} fue encriptada a ${desencriptao}<br><br>`;
+    mostrar.innerHTML = `${desencriptao}`;
+    }
+    else {
+        alert("escriba")
+    }
 }
 
 

@@ -1,4 +1,84 @@
-button{
+body {
     position: relative;
-    top: 500px;
+    width: 100vw;
+    height: 100vh;
+    background: url(17.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+.logo{
+    width: 5%;
+    height: 5%;
+}
+
+.entrada{
+    display: inline-block;
+    padding: 5% 5% 5% 10%;
+    box-sizing: border-box;
+}
+
+.salida{
+    background: palegoldenrod;
+    float: right;
+    padding: 0 1% 0 1%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    margin: 0 5% 0 0;
+}
+
+#Texto{
+    background: transparent;
+    border:2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: left;
+    height: 45vh;
+    width: 45vw;
+    resize: none;
+    font-size: 2em;
+    overflow: hidden;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+textarea::placeholder{
+    color: rgba(255,255,255,0.5);
+    font-size: 2vw;
+
+}
+
+.botones-cript{
+    display: block;
+    position: relative;
+}
+
+#mensaje{
+    resize: none;
+    overflow: hidden;
+    width: 25vw;
+    height: 70vh;
+    background: transparent;
+    border: none;
+    font-size: 2vw;
+}
+
+#copiar{
+    display: block;
+    margin: 4vh auto 4vh auto;
+}
+
+button{
+    width: 8em;
+    height: 2.5em;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 35px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    font-size: 1.5vw;
 }

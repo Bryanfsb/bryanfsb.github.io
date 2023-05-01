@@ -14,19 +14,27 @@
 <body>
 
     <header>
-        <label for="Cajita">Texto</label>
-        <input type="text" id="Texto" name="Cajita">
+        <img class="logo" src="d633104e8ed64d768825e44c7932767d.png">
     </header>
 
     <main>
-        <div id="mensaje"></div>
-        <button id="encriptar">Encriptar</button>
-        <button id="desencriptar">Desencriptar</button>
+        <div class="entrada">
+            <textarea type="text" id="Texto" placeholder="Ingrese su texto aqui ;)"></textarea>
+            <div class="botones-cript">
+                <button id="encriptar">Encriptar</button>
+                <button id="desencriptar">Desencriptar</button>
+            </div>
+        </div>
+
+        <div class="salida">
+            <textarea id="mensaje" readonly></textarea>
+            <button id="copiar">Copiar</button>
+        </div>
         
     </main>
 
     <footer>
-
+        <div>Mis datos</div>
     </footer>
     <script src="script.js"></script>
 </body>
