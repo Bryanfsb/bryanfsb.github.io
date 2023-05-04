@@ -8,18 +8,38 @@
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
     <title>3NCR1P7AD0R</title>
 </head>
 
-<body>
+<body id="body">
 
     <header>
         <img class="logo" src="d633104e8ed64d768825e44c7932767d.png">
-    </header>
+        <h4 id="header">Encriptador de texto</h4>
+        <nav class="nav">
+            <ul class="ul">
+                <li><img id="menu" src="arrows_direction_arrow_right_icon_218877.png">
+                    <ul id="vertical">
+                        <li></li>
+                        <li><img id="cambio" src="arrows-clockwise-dashed_98233.png" alt="cambio"></li>
+                        <li><a href="https://www.instagram.com/brrryansolano/"><img class="redes" src="insta.png"></a></li>
+                        <li><a href="https://github.com/Bryanfsb"><img class="redes" src="git.png"></a></li>
+                        <li><a href="https://www.linkedin.com/in/bryan-solano-barrantes/"><img class="redes" src="in.png"></a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>   
 
     <main>
         <div class="entrada">
+
             <textarea type="text" id="Texto" placeholder="Ingrese su texto aqui ;)"></textarea>
+            <h3 id="aviso">Solo letras minúsculas y sin acentos!</h3>
             <div class="botones-cript">
                 <button id="encriptar">Encriptar</button>
                 <button id="desencriptar">Desencriptar</button>
@@ -27,19 +47,22 @@
         </div>
 
         <div class="salida">
-            <textarea id="mensaje" readonly></textarea>
-            <button id="copiar">Copiar</button>
+            <div id="fachada">
+                <img class="montana" src="39946c2da7bb4c985391c2c5898ca005-montana-de-nieve.png" alt="montaña">
+                <h1 class="titulo">Ningun mensaje fue encontrado</h1>
+                <h2 class="sub-titulo">Ingresa el texto que desea encriptar o desencriptar</h2>
+                <img class="montana" src="39946c2da7bb4c985391c2c5898ca005-montana-de-nieve.png" alt="montaña">
+            </div>
+            <div id="resultado">
+                <textarea id="mensaje" readonly></textarea>
+                <button id="copiar">Copiar</button>
+            </div>
         </div>
-        
     </main>
-
-    <footer>
-        <div>Mis datos</div>
-    </footer>
-    <script src="script.js"></script>
+    
 </body>
 
-
+<script src="script.js"></script>
 
 
 

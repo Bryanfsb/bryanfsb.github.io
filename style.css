@@ -1,3 +1,7 @@
+*{
+    font-family: 'Inconsolata', monospace;
+}
+
 body {
     position: relative;
     width: 100vw;
@@ -7,39 +11,115 @@ body {
     background-position: center;
 }
 
-.logo{
-    width: 5%;
-    height: 5%;
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.entrada{
-    display: inline-block;
-    padding: 5% 5% 5% 10%;
-    box-sizing: border-box;
+#header{
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.5em;
+    color: rgba(255,255,255,0.5);
+}
+
+.logo{
+    padding-top: 10px;
+    margin-left: 10px;
+    width: 4em;
+    height: 4em;
+}
+
+#vertical{
+    transition: all 0.5s ease;
+    position: fixed;
+    right: -100px;
+    list-style: none;
+    z-index: 2;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px 0px 0px 20px;
+    padding: 5px;
+    backdrop-filter: blur(15px);
+}
+
+#menu{
+    padding-top: 5px;
+    margin-right: 5px;
+    width: 4.5em;
+    height: 4.5em;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: all 0.5s ease;
+}
+
+#menu.visible{
+    transition: all 0.5s ease;
+    transform: rotateY(0deg);
+}
+
+#vertical.visible{
+    transition: all 0.5s ease;
+    display: block;
+    top: 50;
+    right: -15px;
+    z-index: 2;
+    
+}
+
+#cambio{
+    padding: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+#cambio.vuelta{
+    animation: rueda 0.5s ease-in-out 1;
+}
+
+.redes{
+    padding: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+main{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .salida{
-    background: palegoldenrod;
-    float: right;
-    padding: 0 1% 0 1%;
-    box-sizing: border-box;
+    position: relative;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 20px;
     backdrop-filter: blur(15px);
-    margin: 0 5% 0 0;
+    width: 324px;
+    height: 686px;
+}
+
+#aviso.error{
+    animation: color 2s ease-in-out 1;
+}
+
+#aviso{
+    color: rgba(255,255,255,0.5);;
+    display: block;
+    font-weight: bold;
 }
 
 #Texto{
+    color: rgba(255,255,255,0.5);
     background: transparent;
     border:2px solid rgba(255,255,255,0.5);
     border-radius: 20px;
     backdrop-filter: blur(15px);
     text-align: left;
-    height: 45vh;
-    width: 45vw;
+    height: 450px;
+    width: 820px;
     resize: none;
-    font-size: 2em;
+    font-size: 3em;
     overflow: hidden;
 }
 
@@ -49,28 +129,60 @@ textarea:focus{
 
 textarea::placeholder{
     color: rgba(255,255,255,0.5);
-    font-size: 2vw;
+    font-size: 0.8em;
 
 }
 
 .botones-cript{
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3em;
 }
 
 #mensaje{
+    color: rgba(255,255,255,0.5);
+    position: relative;
     resize: none;
     overflow: hidden;
-    width: 25vw;
-    height: 70vh;
+    width: 316px;
+    height: 594px;
     background: transparent;
     border: none;
-    font-size: 2vw;
+    font-size: 2em;
+    display: none;
 }
 
 #copiar{
     display: block;
-    margin: 4vh auto 4vh auto;
+    margin: 0em auto 1em auto;
+    display: none;
+}
+
+#fachada{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 59px;
+}
+
+.montana{
+	animation: float 6s ease-in-out infinite;
+}
+
+.titulo{
+    font-size: 1.5em;
+    padding: 0 0 0.5em 0;
+    color: rgba(255,255,255,0.5);
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.sub-titulo{
+    font-size: 1em;
+    padding: 0 0 0.5em 0;
+    color: rgba(255,255,255,0.5);
+    word-wrap: break-word;
+    text-align: center;
 }
 
 button{
@@ -80,5 +192,112 @@ button{
     border-radius: 35px;
     background: transparent;
     backdrop-filter: blur(15px);
-    font-size: 1.5vw;
+    font-size: 1.5em;
+    color: rgba(255,255,255,0.5);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes error {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60% {
+      transform: translateX(10px);
+    }
+    80% {
+      transform: translateX(8px);
+    }
+    90% {
+      transform: translateX(-8px);
+    }
+  }
+  
+  button.error {
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-name: error;
+  }
+
+  @keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+@keyframes color{
+    0% {
+        color: red;
+    }
+    25% {
+        color: rgba(255,255,255,0.5);
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: rgba(255,255,255,0.5);
+    }
+}
+
+@keyframes rueda{
+    0% {
+        transform: rotate(0deg);
+    }
+    12.5% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    37.5% {
+        transform: rotate(135deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    62.5% {
+        transform: rotate(225deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    87.5% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#body.cero{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(17.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+#body.uno{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(1.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width:480px){
+
 }
