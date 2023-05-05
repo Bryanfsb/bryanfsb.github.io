@@ -2,11 +2,15 @@
     font-family: 'Inconsolata', monospace;
 }
 
+#content{
+    
+}
+
 body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(17.webp);
+    background: url(images/17.webp);
     background-size: cover;
     background-position: center;
 }
@@ -21,6 +25,7 @@ header{
     font-family: 'Inconsolata', monospace;
     font-size: 2.5em;
     color: rgba(255,255,255,0.5);
+    transition: all 0.5s ease;
 }
 
 .logo{
@@ -70,6 +75,7 @@ header{
     padding: 1em;
     width: 3em;
     height: 3em;
+    cursor: pointer;
 }
 
 #cambio.vuelta{
@@ -83,10 +89,12 @@ header{
 }
 
 main{
-    margin-top: 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100vw;
+    height: 89.4vh;
+    align-items: center;
 }
 
 .salida{
@@ -123,6 +131,8 @@ main{
     overflow: hidden;
 }
 
+
+
 textarea:focus{
     outline: none;
 }
@@ -130,7 +140,6 @@ textarea:focus{
 textarea::placeholder{
     color: rgba(255,255,255,0.5);
     font-size: 0.8em;
-
 }
 
 .botones-cript{
@@ -145,7 +154,7 @@ textarea::placeholder{
     resize: none;
     overflow: hidden;
     width: 316px;
-    height: 594px;
+    height: 566px;
     background: transparent;
     border: none;
     font-size: 2em;
@@ -154,8 +163,22 @@ textarea::placeholder{
 
 #copiar{
     display: block;
-    margin: 0em auto 1em auto;
+    margin: 32px auto 1em auto;
     display: none;
+}
+
+#confirmacionCopiado{
+    color: rgba(255,255,255,0.5);;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+    white-space: nowrap;
+}
+
+#confirmacionCopiado.copiado{
+    animation: color2 2s ease-in-out 1;
 }
 
 #fachada{
@@ -167,6 +190,8 @@ textarea::placeholder{
 
 .montana{
 	animation: float 6s ease-in-out infinite;
+    width: 250px;
+    height: 250px;
 }
 
 .titulo{
@@ -175,6 +200,10 @@ textarea::placeholder{
     color: rgba(255,255,255,0.5);
     word-wrap: break-word;
     text-align: center;
+}
+
+.logo{
+    transition: all 0.5s ease;
 }
 
 .sub-titulo{
@@ -250,6 +279,21 @@ button{
     }
 }
 
+@keyframes color2{
+    0% {
+        color: greenyellow;
+    }
+    25% {
+        color: rgba(255,255,255,0.5);
+    }
+    50% {
+        color: greenyellow;
+    }
+    100% {
+        color: rgba(255,255,255,0.5);
+    }
+}
+
 @keyframes rueda{
     0% {
         transform: rotate(0deg);
@@ -284,7 +328,7 @@ button{
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(17.webp);
+    background: url(images/17.webp);
     background-size: cover;
     background-position: center;
 }
@@ -293,11 +337,192 @@ button{
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(1.webp);
+    background: url(images/1.webp);
     background-size: cover;
     background-position: center;
 }
 
-@media screen and (max-width:480px){
+#body.dos{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(images/dos.webp);
+    background-size: cover;
+    background-position: center;
+}
 
+#body.tres{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(images/3.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width:1155px){
+    body{
+        background: url(images/17.webp);
+        background-size: auto;
+        background-position: center;
+    }
+
+    #body.cero{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: url(images/17.webp);
+        background-size: auto;
+        background-position: center;
+    }
+    
+    #body.uno{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: url(images/1.webp);
+        background-size: auto;
+        background-position: center;
+    }
+    
+    #body.dos{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: url(images/dos.webp);
+        background-size: auto;
+        background-position: center;
+    }
+    
+    #body.tres{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: url(images/3.webp);
+        background-size: auto;
+        background-position: center;
+    }
+    
+    main{
+        display: flex;
+        
+        align-items: center;
+    }
+
+    .entrada{
+        margin-top: 50px;
+    }
+
+    .salida{
+        margin-top: 50px;
+    }
+
+}
+
+@media screen and (max-width:865px){
+    main{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    #header{
+        font-size: 1.5em;
+        transition: all 0.5s ease;
+    }
+
+    #menu{
+        padding-top: 5px;
+        margin-right: 5px;
+        width: 3.5em;
+        height: 3.5em;
+        cursor: pointer;
+        transform: rotateY(180deg);
+        transition: all 0.5s ease;
+    }
+
+    .logo{
+        width: 3.5em;
+        height: 3.5em;
+        transition: all 0.5s ease;
+    }
+
+    .entrada{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .salida{
+        position: relative;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        width: 300px;
+        height: 500px;
+        margin-top: 1em;
+    }
+
+    #mensaje{
+        color: rgba(255,255,255,0.5);
+        position: relative;
+        resize: none;
+        overflow: hidden;
+        width: 300px;
+        height: 400px;
+        background: transparent;
+        border: none;
+        font-size: 2em;
+        display: none;
+    }
+
+    #aviso{
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    .botones-cript{
+        margin-top: 1em;
+    }
+
+    #copiar{
+        display: block;
+        margin: 16px auto 1em auto;
+        display: none;
+    }
+
+    .montana{
+        animation: float 6s ease-in-out infinite;
+        width: 150px;
+        height: 150px;
+    }
+
+    #Texto{
+        color: rgba(255,255,255,0.5);
+        background: transparent;
+        border:2px solid rgba(255,255,255,0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        height: 300px;
+        width: 300px;
+        resize: none;
+        font-size: 2em;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    #cambio{
+        padding: 0.5em;
+        width: 2em;
+        height: 2em;
+    }
+
+    .redes{
+        padding: 0.5em;
+        width: 2em;
+        height: 2em;
+    }    
 }

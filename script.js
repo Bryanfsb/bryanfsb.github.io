@@ -1,10 +1,11 @@
-let palabra = "";
+
 const letras = ["a","e","i","o","u"];
-const numKey = ["0","1","2","3","4"]
+const numKey = ["0","1","2","3","4"];
 const encript = ["ai","enter","imes","ober","ufat"]
 const botonEncript = document.getElementById("encriptar");
 const botonDesencript = document.getElementById("desencriptar");
 const aviso = document.getElementById("aviso");
+const copiado = document.getElementById("confirmacionCopiado");
 const fondo = document.getElementById("body");
 const botonC = document.getElementById("cambio");
 const menuBoton = document.getElementById("menu");
@@ -13,12 +14,14 @@ const menu = document.getElementById("vertical");
 function mostrar(){
     document.getElementById("mensaje").style.display = "block";
     document.getElementById("copiar").style.display = "block";
+    
     document.getElementById("fachada").style.display = "none";
 };
 
 function mostrarnt(){
     document.getElementById("mensaje").style.display = "none";
     document.getElementById("copiar").style.display = "none";
+    document.getElementById("confirmacionCopiado").style.display = "none";
     document.getElementById("fachada").style.display = "flex";
 };
 
@@ -38,13 +41,17 @@ function removeVisible(){
     botonC.classList.remove("vuelta");
 }
 
+function removeCopiado(){
+    copiado.classList.remove("copiado");
+}
+
 function encriptar(){
     mostrar();
     let entrada = document.getElementById("Texto").value;
         if(/^[a-zA-ZñÑ ]+$/.test(entrada)){
             entrada = entrada.toLowerCase();
-            palabra = entrada;
-            for (letra in letras){
+            
+            for (letra in letras){ 
             if (entrada.includes(letras[letra])){
             
             let encriptao = entrada.replaceAll(letras[letra],numKey[letra]); 
@@ -56,6 +63,7 @@ function encriptar(){
         let mostrar = document.getElementById("mensaje");
         mostrar.innerHTML = `${encriptao}`;
         aviso.classList.remove("error");
+        copiado.style.display = "none";
         }
         else{
             botonEncript.classList.add("error");
@@ -71,7 +79,7 @@ function desencriptar(){
     let entrada = document.getElementById("Texto").value;
     if(/^[a-zA-ZñÑ ]+$/.test(entrada)){
         entrada = entrada.toLowerCase();
-        palabra = entrada;
+        
         for (letra in letras){
         if (entrada.includes(letras[letra])){
             
@@ -84,6 +92,7 @@ function desencriptar(){
     let mostrar = document.getElementById("mensaje");
     mostrar.innerHTML = `${desencriptao}`;
     aviso.classList.remove("error");
+    copiado.style.display = "none";
     }
     else {
         botonDesencript.classList.add("error");
@@ -94,17 +103,37 @@ function desencriptar(){
     }
 }
 
+function copy() {
+    let copyText = document.querySelector("#mensaje");
+    copyText.select();
+    document.execCommand("copy");
+    copiado.style.display = "block";
+    copiado.classList.add("copiado");
+    copiado.addEventListener("animationend",removeCopiado);
+}
+  
+  document.querySelector("#copiar").addEventListener("click", copy);
+
 let fondito = false;
+let fondito2 = false;
 
 function cambioFondo(){
     botonC.classList.add("vuelta");
-    if (fondito == false){
-        fondo.classList.add("uno");
+    if (fondito == false && fondito2 == false){
+        fondo.classList.replace("cero","uno");
         fondito = true
     }
-    else{
-        fondo.classList.remove("uno","cero");
+    else if (fondito == true && fondito2 == false) {
+        fondo.classList.replace("uno","dos");
+        fondito2 = true
+    }
+    else if(fondito == true && fondito2 == true) {
+        fondo.classList.replace("dos","tres");
         fondito = false
+    }
+    else if (fondito == false && fondito2 == true){
+        fondo.classList.replace("tres","cero");
+        fondito2 = false
     }
     botonC.addEventListener("animationend", removeVisible);
 }
@@ -124,10 +153,20 @@ function menubar(){
     }
 }
 
+var miTextarea = document.getElementById("Texto");
+		miTextarea.addEventListener("focus", function(){
+			this.placeholder = "";
+		});
+		miTextarea.addEventListener("blur", function(){
+			this.placeholder = "Ingrese su texto aqui ;)";
+		});
+
 botonEncript.addEventListener("click",encriptar);
 botonDesencript.addEventListener("click",desencriptar);
 botonC.addEventListener("click",cambioFondo);
 menuBoton.addEventListener("click",menubar);
+
+
 
 
 
